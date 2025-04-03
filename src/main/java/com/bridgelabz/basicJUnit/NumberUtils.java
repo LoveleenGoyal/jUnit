@@ -1,7 +1,10 @@
 package com.bridgelabz.basicJUnit;
 
 public class NumberUtils {
-    public boolean isEven(int number) {
-        return number % 2 == 0;
+    public String isEven(int number) {
+        if (number % 2 == 0) {
+            return "True";
+        }
+        return "False";
     }
 }
