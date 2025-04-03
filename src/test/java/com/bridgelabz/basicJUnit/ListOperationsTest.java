@@ -6,21 +6,25 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ListOperationsTest {
+    static List<Integer> list;
+    @BeforeAll
+    static void setList() {
+        list = new ArrayList<>();
+        ListOperations.addElement(list, 20);
+        ListOperations.addElement(list, 10);
+    }
     @Test
     @DisplayName("List Add Element Testing")
     @Order(1)
     public void addElementTest(){
-        List<Integer> list=new ArrayList<>();
-        ListOperations.addElement(list,10);
-        assertTrue(list.contains(10));
+        ListOperations.addElement(list,30);
+        assertTrue(list.contains(20));
     }
 
     @Test
     @DisplayName("List Remove Element Testing")
     @Order(2)
     public void removeElementTest(){
-        List<Integer> list=new ArrayList<>();
-        list.add(10);
         ListOperations.removeElement(list,10);
         assertFalse(list.contains(10));
     }
@@ -29,9 +33,6 @@ public class ListOperationsTest {
     @DisplayName("List Size Testing")
     @Order(3)
     public void getSizeTest(){
-        List<Integer> list=new ArrayList<>();
-        list.add(10);
-        list.add(20);
-        assertEquals(2,ListOperations.getSize(list));
+        assertEquals(1,ListOperations.getSize(list));
     }
 }
